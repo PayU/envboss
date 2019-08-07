@@ -13,11 +13,11 @@ function validateEnvParams (paramsConfig) {
     }
 }
 
-function applyWrappingFunction (paramName, config, value) {
-    if (typeof config.wrappingFunction !== 'function') {
+function applyWrappingFunction (paramName, wrappingFunction, value) {
+    if (typeof wrappingFunction !== 'function') {
         throw new Error(`wrappingFunction method of '${paramName}' should be a function`);
     }
-    return config.wrappingFunction(value);
+    return wrappingFunction(value);
 }
 
 function applyValidationFunction (paramName, config, value) {
@@ -28,16 +28,35 @@ function applyValidationFunction (paramName, config, value) {
         throw new Error(`value '${value}' of env param '${paramName}' is not valid, check paramsConfig to see valid values`);
     }
 }
+function getWrappingFunctionByDefaultValue(value){
+    let wrappingFunction;
+    switch(typeof value) {
+        case 'number':
+            wrappingFunction =  Number
+            break;
+        case 'boolean':
+            wrappingFunction =  Boolean
+            break;
+        default:
+            wrappingFunction =  String
+    }
+    console.log('typeof value',typeof value)
+    return wrappingFunction
+}
 
 function createEnvObject (paramsConfig,shouldValidateEnvParams = true) {
     shouldValidateEnvParams && validateEnvParams(paramsConfig);
 
     let result = {};
     Object.entries(paramsConfig).forEach(([paramName, config]) => {
+
         let value = process.env[paramName] || config.default;
 
         if (config.wrappingFunction) {
-            value = applyWrappingFunction(paramName, config, value);
+            value = applyWrappingFunction(paramName, config.wrappingFunction, value);
+        }else{
+            const wrappingFunction = getWrappingFunctionByDefaultValue(config.default)
+            value = applyWrappingFunction(paramName, wrappingFunction, value);
         }
 
         if (shouldValidateEnvParams ) {

@@ -15,7 +15,6 @@ describe('env-variables-util', function () {
     afterEach(function () {
         process.env = processEnvBackup;
     });
-
     describe('mandatory', function () {
         describe('mandatory params was defined', function () {
             it('should return it as object', function () {
@@ -76,9 +75,39 @@ describe('env-variables-util', function () {
                 const envObject = createEnvObject({
                     ENV_PARAM1: { default: 200 }
                 });
-                expect(envObject).to.deep.equal({ ENV_PARAM1: '300' });
+                expect(envObject).to.deep.equal({ ENV_PARAM1: 300 });
             });
         });
+        describe('default value should be automatically be converted to  the type of default value', function () {
+            describe('if its number', function () {
+                it('should set the value to number', function () {
+                    process.env.ENV_PARAM1 = '300';
+                    const envObject = createEnvObject({
+                        ENV_PARAM1: { default: 200 }
+                    });
+                    expect(envObject).to.deep.equal({ ENV_PARAM1: 300 });
+                });
+            });
+            describe('if its boolean', function () {
+                it('should set the value to boolean', function () {
+                    process.env.ENV_PARAM1 = 'true';
+                    const envObject = createEnvObject({
+                        ENV_PARAM1: { default: false }
+                    });
+                    expect(envObject).to.deep.equal({ ENV_PARAM1: true });
+                });
+            });
+            describe('if its string', function () {
+                it('should set the value to string', function () {
+                    process.env.ENV_PARAM1 = 'abb';
+                    const envObject = createEnvObject({
+                        ENV_PARAM1: { default: 'efe' }
+                    });
+                    expect(envObject).to.deep.equal({ ENV_PARAM1: 'abb' });
+                });
+            });
+        });
+
     });
     describe('wrappingFunction', function () {
         describe('wrappingFunction was defined', function () {

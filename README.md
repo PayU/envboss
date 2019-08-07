@@ -9,7 +9,9 @@ If you wouldn't like to validate envparams(e.g. in tests) pass pass false to
 `validationFunction` - will help you validate the values.
 
 `validValues`- lets you describe what values are valid. 
-`wrappingFunction` - converts the envparam value to the given value.
+
+`wrappingFunction` - converts the envparam value to the given value. By default,
+if `default` value is provided, `process.env[<ENV_PARAM_NAME>]` value will be converted to the type default's value type
 
 
 ```javascript
@@ -19,13 +21,14 @@ const { createEnvObject, mandatory } = require('env-vars-config');
 
 const ENV_VARS_CONFIG = {
     CLUSTER: { mandatory },
-    ENVIRONMENT: { mandatory, validationFunction: (v) => v === 'live' || v === 'sandbox' },
+    ENVIRONMENT: { mandatory, validValues: ['live', 'sandbox']},
     SERVICE_URL: { mandatory },
     IS_MASTER: { mandatory },
     // optional
-    PORT: { default: 8082, wrappingFunction: Number },
+    PORT: { default: 8082 },
     PROCESSOR_TIMEOUT: { default: 50000, wrappingFunction: Number },
-    LOG_LEVEL: { default: 'info' , validValues: ['info', 'error', 'trace']}
+    RETRY_TIMES: { default: 10, validationFunction: (v) => v > 3},
+    LOG_LEVEL: { default: 'info' }
 };
 
 module.exports = createEnvObject(ENV_VARS_CONFIG);
