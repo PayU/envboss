@@ -1,5 +1,5 @@
 {
-  "name": "env-vars",
+  "name": "env-vars-config",
   "version": "1.0.0",
   "description": "```javascript 'use strict';",
   "main": "src/index.js",
