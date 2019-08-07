@@ -1,12 +1,16 @@
 # env-vars-config
 This package helps you organize all environment variables in one place
-it take each <ENV_PARAM_NAME> from process.env and creates an envionmentVariables object with process.env[<ENV_PARAM_NAME>]
-Each env
+it take each <ENV_PARAM_NAME> from `process.env` and creates an envionmentVariables object with `process.env[<ENV_PARAM_NAME>]`
+as it's value.
+So you can require it from anywhere.
 
+In case you wouldnt like to validate envparams pass pass false to 
+createEnvObject(ENV_VARS_CONFIG,false)```
+```
 `validationFunction` - will help you validate the values
 
 
-wrappingFunction - converts the envparam value to the given value
+`wrappingFunction` - converts the envparam value to the given value
 
 
 ```javascript
