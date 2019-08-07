@@ -1,5 +1,7 @@
 # env-vars-config
 This package helps you organize all environment variables in one place
+it creates an envionmentVariables object
+`validationFunction` - will help you validate the values
 
 
 ```javascript
@@ -23,5 +25,5 @@ module.exports = createEnvObject(ENV_VARS_CONFIG);
 
 ```javascript
 /// someFile.js
-const {ENVIRONMENT} = require('envVariavlesConfig.js');
+const { ENVIRONMENT } = require('envVariavlesConfig.js');
 ```
