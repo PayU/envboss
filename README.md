@@ -1,7 +1,9 @@
-# envVars
+# env-vars-config
+This package helps you organize all environment variables in one place
+
 
 ```javascript
-'use strict';
+/// envVariablesConfig.js
 
 const { createEnvObject, mandatory } = require('env-vars-config');
 
@@ -16,5 +18,10 @@ const ENV_VARS_CONFIG = {
     LOG_LEVEL: { default: 'info' }
 };
 
-module.exports = () => createEnvObject(ENV_VARS_CONFIG);
+module.exports = createEnvObject(ENV_VARS_CONFIG);
+```
+
+```javascript
+/// someFile.js
+const {ENVIRONMENT} = require('envVariavlesConfig.js');
 ```
