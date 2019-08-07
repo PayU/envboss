@@ -1,0 +1,33 @@
+{
+  "name": "env-vars-config",
+  "version": "1.0.2",
+  "description": "```javascript 'use strict';",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuriabaevzooz/envVars.git"
+  },
+  "author": "yuri ab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuriabaevzooz/envVars/issues"
+  },
+  "homepage": "https://github.com/yuriabaevzooz/envVars#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-loader": "^8.0.5",
+    "mocha": "^6.2.0",
+    "chai": "^4.2.0",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
+  }
+}
