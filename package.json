@@ -1,6 +1,6 @@
 {
-  "name": "env-vars",
-  "version": "1.0.0",
+  "name": "env-vars-config",
+  "version": "1.0.2",
   "description": "```javascript 'use strict';",
   "main": "src/index.js",
   "directories": {
