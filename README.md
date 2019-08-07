@@ -1,7 +1,11 @@
 # env-vars-config
 This package helps you organize all environment variables in one place
 it creates an envionmentVariables object
+
 `validationFunction` - will help you validate the values
+
+ValidValues-TBD
+
 
 
 ```javascript
