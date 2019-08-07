@@ -5,8 +5,8 @@ as it's value.
 So you can require it from anywhere.
 
 In case you wouldnt like to validate envparams pass pass false to 
-createEnvObject(ENV_VARS_CONFIG,false)```
-```
+```createEnvObject(ENV_VARS_CONFIG,false)```
+
 `validationFunction` - will help you validate the values
 
 
