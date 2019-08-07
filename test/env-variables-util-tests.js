@@ -114,4 +114,26 @@ describe('env-variables-util', function () {
             });
         });
     });
+    describe('validValues', function () {
+        describe('value is not in validValues', function () {
+            it('should apply the wrappingFunction on the value', function () {
+                process.env.ENV_PARAM1 = 'v33333';
+                const paramsConfig = {
+                    ENV_PARAM1: { mandatory, validValues: ['v2','v3'] }
+                };
+
+                expect(() => createEnvObject(paramsConfig)).to.throw('value \'v33333\' of env param \'ENV_PARAM1\' is not valid, check paramsConfig to see valid values');
+            });
+        });
+        describe('value is valid and in validValues', function () {
+            it('should contain the valid value', function () {
+                process.env.ENV_PARAM1 = 'v1';
+                const envObject = createEnvObject({
+                    ENV_PARAM1: { mandatory, validValues: ['v1','v3'] }
+                });
+
+                expect(envObject).to.deep.equal({ ENV_PARAM1: 'v1' });
+            });
+        });
+    });
 });

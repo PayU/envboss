@@ -40,8 +40,16 @@ function createEnvObject (paramsConfig,shouldValidateEnvParams = true) {
             value = applyWrappingFunction(paramName, config, value);
         }
 
-        if (shouldValidateEnvParams && config.validationFunction) {
-            applyValidationFunction(paramName, config, value);
+        if (shouldValidateEnvParams ) {
+            if (config.validationFunction) {
+                applyValidationFunction(paramName, config, value);
+            }
+
+            if (config.validValues) {
+                if(! config.validValues.includes(value)){
+                    throw new Error(`value '${value}' of env param '${paramName}' is not valid, check paramsConfig to see valid values`);
+                }
+            }
         }
 
         result[paramName] = value;
