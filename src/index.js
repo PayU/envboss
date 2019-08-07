@@ -1,4 +1,3 @@
-const shouldValidateEnvParams = process.env.SHOULD_VALIDATE_ENV_PARAMS !== 'false';
 
 const isEnvParamEmpty = ([paramName]) => !process.env[paramName] || process.env[paramName].trim() === '';
 const isMandatory = ([, envParamConfig]) => envParamConfig.mandatory;
@@ -30,7 +29,7 @@ function applyValidationFunction (paramName, config, value) {
     }
 }
 
-function createEnvObject (paramsConfig) {
+function createEnvObject (paramsConfig,shouldValidateEnvParams = true) {
     shouldValidateEnvParams && validateEnvParams(paramsConfig);
 
     let result = {};
