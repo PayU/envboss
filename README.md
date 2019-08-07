@@ -25,5 +25,5 @@ module.exports = createEnvObject(ENV_VARS_CONFIG);
 
 ```javascript
 /// someFile.js
-const { ENVIRONMENT } = require('envVariavlesConfig.js');
+const { ENVIRONMENT } = require('envVariavbesConfig.js');
 ```
