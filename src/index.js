@@ -2,7 +2,7 @@
 const isEnvParamEmpty = ([paramName]) => !process.env[paramName] || process.env[paramName].trim() === '';
 const isMandatory = ([, envParamConfig]) => envParamConfig.mandatory;
 
-function validateEnvParams (paramsConfig) {
+function validateMandatoryEnvParams (paramsConfig) {
     let missingFields =
     Object.entries(paramsConfig)
         .filter(isMandatory)
@@ -40,12 +40,12 @@ function getWrappingFunctionByDefaultValue(value){
         default:
             wrappingFunction =  String
     }
-    console.log('typeof value',typeof value)
+
     return wrappingFunction
 }
 
 function createEnvObject (paramsConfig,shouldValidateEnvParams = true) {
-    shouldValidateEnvParams && validateEnvParams(paramsConfig);
+    shouldValidateEnvParams && validateMandatoryEnvParams(paramsConfig);
 
     let result = {};
     Object.entries(paramsConfig).forEach(([paramName, config]) => {
