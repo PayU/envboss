@@ -1,6 +1,6 @@
 {
   "name": "env-vars-config",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "package for environment variables",
   "main": "src/index.js",
   "directories": {
