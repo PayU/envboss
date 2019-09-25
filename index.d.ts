@@ -14,5 +14,6 @@ type PrimitiveType = number | string | boolean
 export interface EnvironmentVariables{
     [name:string]:any
 }
+export declare const mandatory:boolean
 export declare function createEnvObject(paramsConfig:ParamsConfiguration, shouldValidateEnvParams?:boolean): EnvironmentVariables;
 
