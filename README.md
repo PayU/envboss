@@ -1,5 +1,5 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/yuriabaev/env-vars-config/badge.svg?targetFile=package.json)](https://snyk.io/test/github/yuriabaev/env-vars-config?targetFile=package.json)
-
+[![Build Status](https://travis-ci.com/yuriabaev/env-vars-config.svg?branch=master)](https://travis-ci.com/yuriabaev/env-vars-config)
 # env-vars-config
 This package helps you organize all environment variables in one place.
 It takes each <ENV_PARAM_NAME> from `process.env` and creates an envionmentVariables object with `process.env[<ENV_PARAM_NAME>]`
