@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "mocha",
+    "lint": "./node_modules/.bin/eslint ./src --fix",
     "test:coverage": "nyc npm test && nyc report --reporter=text-lcov",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
