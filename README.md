@@ -1,7 +1,6 @@
-[![Known Vulnerabilities](https://snyk.io/test/github/yuriabaev/env-vars-config/badge.svg?targetFile=package.json)](https://snyk.io/test/github/yuriabaev/env-vars-config?targetFile=package.json)
+[![Known Vulnerabilities](https://snyk.io/test/github/yuriabaevzooz/env-vars-config/badge.svg?targetFile=package.json)](https://snyk.io/test/github/yuriabaevzooz/env-vars-config?targetFile=package.json)
 [![Build Status](https://travis-ci.com/yuriabaevzooz/env-vars-config.svg?branch=master)](https://travis-ci.com/yuriabaev/env-vars-config)
-
-https://travis-ci.com/yuriabaevzooz/env-vars-config.svg?branch=master
+[![Coverage Status](https://coveralls.io/repos/github/yuriabaevzooz/env-vars-config/badge.svg?branch=master)](https://coveralls.io/github/yuriabaevzooz/env-vars-config?branch=master)
 
 # env-vars-config
 This package helps you organize all environment variables in one place.
