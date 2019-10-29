@@ -22,7 +22,7 @@ if `default` value is provided, `process.env[<ENV_PARAM_NAME>]` value will be co
 ```javascript
 /// envVariablesConfig.js
 
-const { createEnvObject, mandatory } = require('env-vars-config');
+import { createEnvObject, mandatory } from 'env-vars-config';
 
 const ENV_VARS_CONFIG = {
     CLUSTER: { mandatory },
@@ -42,4 +42,5 @@ module.exports = createEnvObject(ENV_VARS_CONFIG);
 ```javascript
 /// someFile.js
 const { ENVIRONMENT } = require('envVariavbesConfig.js');
+
 ```
