@@ -3,7 +3,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/yuriabaevzooz/env-vars-config/badge.svg?branch=master)](https://coveralls.io/github/yuriabaevzooz/env-vars-config?branch=master)
 
 # env-vars-config
-This package helps you organize all environment variables in one place.
+This package helps you organize and validate all your environment variables in one place.
+
 It takes each <ENV_PARAM_NAME> from `process.env` and creates an envionmentVariables object with `process.env[<ENV_PARAM_NAME>]`
 as it's value, so you can require it from anywhere.
 
