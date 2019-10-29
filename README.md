@@ -1,5 +1,5 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/yuriabaevzooz/env-vars-config/badge.svg?targetFile=package.json)](https://snyk.io/test/github/yuriabaevzooz/env-vars-config?targetFile=package.json)
-[![Build Status](https://travis-ci.com/yuriabaevzooz/env-vars-config.svg?branch=master)](https://travis-ci.com/yuriabaev/env-vars-config)
+[![Build Status](https://travis-ci.com/yuriabaevzooz/env-vars-config.svg?branch=master)](https://travis-ci.com/yuriabaevzooz/env-vars-config)
 [![Coverage Status](https://coveralls.io/repos/github/yuriabaevzooz/env-vars-config/badge.svg?branch=master)](https://coveralls.io/github/yuriabaevzooz/env-vars-config?branch=master)
 
 # env-vars-config
