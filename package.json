@@ -1,5 +1,5 @@
 {
-  "name": "env-vars-config",
+  "name": "envio",
   "version": "1.0.9",
   "description": "package for environment variables",
   "main": "src/index.js",
@@ -10,7 +10,7 @@
     "test": "mocha",
     "lint": "./node_modules/.bin/eslint ./src --fix",
     "test:coverage": "nyc npm test && nyc report --reporter=text-lcov",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",

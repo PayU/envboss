@@ -1,4 +1,4 @@
-declare module 'env-vars-config'
+declare module 'envio'
 interface ParamsConfiguration{
     [name:string]:ParamConfiguration
 }

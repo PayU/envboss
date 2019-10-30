@@ -1,8 +1,9 @@
-[![Known Vulnerabilities](https://snyk.io/test/github/yuriabaevzooz/env-vars-config/badge.svg?targetFile=package.json)](https://snyk.io/test/github/yuriabaevzooz/env-vars-config?targetFile=package.json)
-[![Build Status](https://travis-ci.com/yuriabaevzooz/env-vars-config.svg?branch=master)](https://travis-ci.com/yuriabaevzooz/env-vars-config)
-[![Coverage Status](https://coveralls.io/repos/github/yuriabaevzooz/env-vars-config/badge.svg?branch=master)](https://coveralls.io/github/yuriabaevzooz/env-vars-config?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/PayU/envio/badge.svg?targetFile=package.json)](https://snyk.io/test/github/PayU/envio?targetFile=package.json)
+[![Build Status](https://travis-ci.com/PayU/envio.svg?branch=master)](https://travis-ci.com/PayU/envio)
+[![Coverage Status](https://coveralls.io/repos/github/PayU/envio/badge.svg?branch=master)](https://coveralls.io/github/PayU/envio?branch=master)
+![GitHub](https://img.shields.io/github/license/PayU/envio)
 
-# env-vars-config
+# envio
 This package helps you organize and validate all your environment variables in one place.
 
 ## How does it work?
@@ -22,7 +23,7 @@ if `default` value is provided, `process.env[<ENV_PARAM_NAME>]` value will be co
  
 ***Installation***
 ```bash
-> npm i --save-dev env-vars-config
+> npm i --save-dev envio
 ``` 
  
 ## How to use
@@ -30,7 +31,7 @@ if `default` value is provided, `process.env[<ENV_PARAM_NAME>]` value will be co
 ```javascript
 /// envVariablesConfig.js
 
-import { createEnvObject, mandatory } from 'env-vars-config';
+import { createEnvObject, mandatory } from 'envio';
 
 const ENV_VARS_CONFIG = {
     CLUSTER: { mandatory },
