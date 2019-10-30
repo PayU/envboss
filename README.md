@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.com/PayU/envio.svg?branch=master)](https://travis-ci.com/PayU/envio)
 [![Coverage Status](https://coveralls.io/repos/github/PayU/envio/badge.svg?branch=master)](https://coveralls.io/github/PayU/envio?branch=master)
 ![GitHub](https://img.shields.io/github/license/PayU/envio)
-
+![npm (scoped)](https://img.shields.io/npm/v/@yuri.abaev/envio)
 # envio
 This package helps you organize and validate all your environment variables in one place.
 
