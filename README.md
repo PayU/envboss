@@ -4,7 +4,7 @@
 ![GitHub](https://img.shields.io/github/license/PayU/envboss)
 ![npm (scoped)](https://img.shields.io/npm/v/envboss)
 
-# envboss
+# EnvBoss 
 This package helps you organize and validate all your environment variables in one place.
 
 ## How does it work?
