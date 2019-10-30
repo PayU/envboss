@@ -23,7 +23,7 @@ if `default` value is provided, `process.env[<ENV_PARAM_NAME>]` value will be co
  
 ***Installation***
 ```bash
-> npm i --save-dev envio
+> npm i @payu/envio
 ``` 
  
 ## How to use

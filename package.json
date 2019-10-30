@@ -1,5 +1,5 @@
 {
-  "name": "@yuri.abaev/envio",
+  "name": "@payu/envio",
   "version": "1.0.10",
   "description": "package for environment variables",
   "main": "src/index.js",
