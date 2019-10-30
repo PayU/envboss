@@ -1,7 +1,9 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/PayU/envboss/badge.svg?targetFile=package.json)](https://snyk.io/test/github/PayU/envboss?targetFile=package.json)
-[![Build Status](https://travis-ci.com/PayU/envboss.svg?branch=master)](https://travis-ci.com/PayU/envboss)[![Coverage Status](https://coveralls.io/repos/github/PayU/envboss/badge.svg?branch=master)](https://coveralls.io/github/PayU/envboss?branch=master)
+[![Build Status](https://travis-ci.com/PayU/envboss.svg?branch=master)](https://travis-ci.com/PayU/envboss)
+[![Coverage Status](https://coveralls.io/repos/github/PayU/envboss/badge.svg?branch=master)](https://coveralls.io/github/PayU/envboss?branch=master)
 ![GitHub](https://img.shields.io/github/license/PayU/envboss)
 ![npm (scoped)](https://img.shields.io/npm/v/envboss)
+
 # envboss
 This package helps you organize and validate all your environment variables in one place.
 
