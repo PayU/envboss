@@ -1,6 +1,6 @@
 {
   "name": "env-vars-config",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "package for environment variables",
   "main": "src/index.js",
   "directories": {
@@ -21,7 +21,13 @@
   "bugs": {
     "url": "https://github.com/yuriabaevzooz/envVars/issues"
   },
-  "keywords": ["envionment","variables","envionment variables","configuration", "process.env"],
+  "keywords": [
+    "envionment",
+    "variables",
+    "envionment variables",
+    "configuration",
+    "process.env"
+  ],
   "homepage": "https://github.com/yuriabaevzooz/envVars#readme",
   "dependencies": {},
   "devDependencies": {
