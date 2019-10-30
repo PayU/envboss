@@ -5,7 +5,13 @@
 ![npm (scoped)](https://img.shields.io/npm/v/envboss)
 
 # EnvBoss 
-This package helps you organize and validate all your environment variables in one place.
+Tired of using `process.env` everywhere in the code?<br>
+Tired of guessing which environment variable are `mandatory` and which are `optional`?<br>
+Tired of validating environment params?
+
+meet `EnvBoss!!!` 
+
+This package will help you organize and validate all your environment variables in one place.
 
 ## How does it work?
 It takes each <ENV_PARAM_NAME> from `process.env` and creates an environmentVariables object with `process.env[<ENV_PARAM_NAME>]`
