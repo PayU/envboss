@@ -21,6 +21,7 @@
   "bugs": {
     "url": "https://github.com/yuriabaevzooz/envVars/issues"
   },
+  "keywords": ["envionment","variables","envionment variables","configuration", "process.env"],
   "homepage": "https://github.com/yuriabaevzooz/envVars#readme",
   "dependencies": {},
   "devDependencies": {
