@@ -1,4 +1,4 @@
-declare module 'envio'
+declare module 'envboss'
 interface ParamsConfiguration{
     [name:string]:ParamConfiguration
 }

@@ -1,13 +1,12 @@
-[![Known Vulnerabilities](https://snyk.io/test/github/PayU/envio/badge.svg?targetFile=package.json)](https://snyk.io/test/github/PayU/envio?targetFile=package.json)
-[![Build Status](https://travis-ci.com/PayU/envio.svg?branch=master)](https://travis-ci.com/PayU/envio)
-[![Coverage Status](https://coveralls.io/repos/github/PayU/envio/badge.svg?branch=master)](https://coveralls.io/github/PayU/envio?branch=master)
-![GitHub](https://img.shields.io/github/license/PayU/envio)
-![npm (scoped)](https://img.shields.io/npm/v/@yuri.abaev/envio)
-# envio
+[![Known Vulnerabilities](https://snyk.io/test/github/PayU/envboss/badge.svg?targetFile=package.json)](https://snyk.io/test/github/PayU/envboss?targetFile=package.json)
+[![Build Status](https://travis-ci.com/PayU/envboss.svg?branch=master)](https://travis-ci.com/PayU/envboss)[![Coverage Status](https://coveralls.io/repos/github/PayU/envboss/badge.svg?branch=master)](https://coveralls.io/github/PayU/envboss?branch=master)
+![GitHub](https://img.shields.io/github/license/PayU/envboss)
+![npm (scoped)](https://img.shields.io/npm/v/envboss)
+# envboss
 This package helps you organize and validate all your environment variables in one place.
 
 ## How does it work?
-It takes each <ENV_PARAM_NAME> from `process.env` and creates an envionmentVariables object with `process.env[<ENV_PARAM_NAME>]`
+It takes each <ENV_PARAM_NAME> from `process.env` and creates an environmentVariables object with `process.env[<ENV_PARAM_NAME>]`
 as it's value, so you can require it from anywhere.
 
 If you wouldn't like to validate envparams(e.g. in tests) pass pass false to 
@@ -23,7 +22,7 @@ if `default` value is provided, `process.env[<ENV_PARAM_NAME>]` value will be co
  
 ***Installation***
 ```bash
-> npm i @payu/envio
+> npm i envboss
 ``` 
  
 ## How to use
@@ -31,7 +30,7 @@ if `default` value is provided, `process.env[<ENV_PARAM_NAME>]` value will be co
 ```javascript
 /// envVariablesConfig.js
 
-import { createEnvObject, mandatory } from 'envio';
+import { createEnvObject, mandatory } from 'envboss';
 
 const ENV_VARS_CONFIG = {
     CLUSTER: { mandatory },

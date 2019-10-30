@@ -1,6 +1,6 @@
 {
-  "name": "@payu/envio",
-  "version": "1.0.10",
+  "name": "envboss",
+  "version": "0.0.0",
   "description": "package for environment variables",
   "main": "src/index.js",
   "directories": {
@@ -17,14 +17,15 @@
     "url": "git+https://github.com/yuriabaevzooz/envVars.git"
   },
   "author": "yuri ab",
+  "files": ["src"],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/yuriabaevzooz/envVars/issues"
   },
   "keywords": [
-    "envionment",
+    "environment",
     "variables",
-    "envionment variables",
+    "environment variables",
     "configuration",
     "process.env"
   ],
