@@ -14,11 +14,12 @@ meet `EnvBoss!!!`
 This package will help you organize and validate all your environment variables in one place.
 
 ## How does it work?
-It takes each <ENV_PARAM_NAME> from `process.env` and creates an environmentVariables object with `process.env[<ENV_PARAM_NAME>]`
-as it's value, so you can require it from anywhere.
+It goes over the configuration you provide, and returns an object where the key is the <ENV_PARAM_NAME> and the value is `process.env[<ENV_PARAM_NAME>]` after it was validated and sanitized.
+ 
+#configuration
+`mandatory` - sets this param as mandatory.
 
-If you wouldn't like to validate envparams(e.g. in tests) pass pass false to 
-```createEnvObject(ENV_VARS_CONFIG,false)```
+`default` - lets you define a default value. 
 
 `validationFunction` - will help you validate the values.
 
@@ -27,6 +28,10 @@ If you wouldn't like to validate envparams(e.g. in tests) pass pass false to
 `wrappingFunction` - converts the envparam value to the given value. By default,
 if `default` value is provided, `process.env[<ENV_PARAM_NAME>]` value will be converted to the type default's value type
  
+
+If you wouldn't like to validate envparams(e.g. in tests) pass pass false to 
+```createEnvObject(ENV_VARS_CONFIG,false)```
+
  
 ***Installation***
 ```bash
