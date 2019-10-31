@@ -14,9 +14,10 @@ meet `EnvBoss!!!`
 This package will help you organize and validate all your environment variables in one place.
 
 ## How does it work?
-It goes over the configuration you provide, and returns an object where the key is the <ENV_PARAM_NAME> and the value is `process.env[<ENV_PARAM_NAME>]` after it was validated and sanitized.
+It goes over the configuration you provide, and returns an object where the `key` is the `<ENV_PARAM_NAME>` and the value is `process.env[<ENV_PARAM_NAME>]` after it was validated and sanitized.
  
 #configuration
+
 `mandatory` - sets this param as mandatory.
 
 `default` - lets you define a default value. 
