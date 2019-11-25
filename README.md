@@ -30,7 +30,7 @@ It goes over the configuration you provide, and returns an object where the `key
 if `default` value is provided, `process.env[<ENV_PARAM_NAME>]` value will be converted to the type default's value type
  
 
-If you wouldn't like to validate envparams(e.g. in tests) pass pass false to 
+If you wouldn't like to validate envparams (e.g. in tests) pass false to 
 ```createEnvObject(ENV_VARS_CONFIG,false)```
 
  

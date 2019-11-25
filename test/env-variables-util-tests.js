@@ -8,7 +8,6 @@ describe('env-variables-util', function () {
     let processEnvBackup;
     beforeEach(function () {
         processEnvBackup = { ...process.env };
-        process.env.SHOULD_VALIDATE_ENV_PARAMS = 'true';
         createEnvObject = rewire('../src/index').createEnvObject;
     });
 
@@ -107,7 +106,15 @@ describe('env-variables-util', function () {
                 });
             });
         });
+        describe('default value is undefined', function () {
+            it('should set the value to undefined', function () {
 
+                const envObject = createEnvObject({
+                    ENV_PARAM1: { default: undefined }
+                });
+                expect(envObject).to.deep.equal({ ENV_PARAM1: undefined });
+            });
+        });
     });
     describe('wrappingFunction', function () {
         describe('wrappingFunction was defined', function () {
@@ -164,5 +171,15 @@ describe('env-variables-util', function () {
                 expect(envObject).to.deep.equal({ ENV_PARAM1: 'v1' });
             });
         });
+    });
+
+    describe('not mandatory and not default', function () {
+        it('should set the value as given by default param value', function () {
+                const envObject = createEnvObject({
+                    ENV_PARAM1: {}
+                });
+
+                expect(envObject).to.deep.equal({ ENV_PARAM1: undefined });
+            });
     });
 });

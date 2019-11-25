@@ -36,8 +36,11 @@ function getWrappingFunctionByDefaultValue(value) {
     case 'boolean':
       wrappingFunction = Boolean;
       break;
-    default:
+    case 'string':
       wrappingFunction = String;
+      break;
+    default:
+      wrappingFunction = (v)=>v;
   }
 
   return wrappingFunction;
