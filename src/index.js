@@ -1,4 +1,3 @@
-
 const isEnvParamEmpty = ([paramName]) => !process.env[paramName] || process.env[paramName].trim() === '';
 const isMandatory = ([, envParamConfig]) => envParamConfig.mandatory;
 
@@ -40,11 +39,11 @@ function getWrappingFunctionByDefaultValue(value) {
       wrappingFunction = String;
       break;
     default:
-      wrappingFunction = (v)=>v;
+      wrappingFunction = (v) => v;
   }
 
   return wrappingFunction;
-}
+};
 
 function createEnvObject(paramsConfig, shouldValidateEnvParams = true) {
   if (shouldValidateEnvParams) {
