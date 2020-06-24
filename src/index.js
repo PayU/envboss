@@ -1,5 +1,6 @@
 const isEnvParamEmpty = ([paramName]) => !process.env[paramName] || process.env[paramName].trim() === '';
-const isMandatory = ([_, envParamConfig]) => envParamConfig.mandatory;
+// eslint-disable-next-line no-unused-vars
+const isMandatory = ([name, envParamConfig]) => envParamConfig.mandatory;
 
 function validateMandatoryEnvParams(paramsConfig) {
   const missingFields = Object.entries(paramsConfig)
@@ -82,10 +83,8 @@ function createEnvObject(paramsConfig, shouldValidateEnvParams = true) {
           applyValidationFunction(paramName, config, value);
         }
 
-        if (config.validValues) {
-          if (!config.validValues.includes(value)) {
-            throw new Error(`value '${value}' of env param '${paramName}' is not valid, check paramsConfig to see valid values`);
-          }
+        if (config.validValues && !config.validValues.includes(value)) {
+          throw new Error(`value '${value}' of env param '${paramName}' is not valid, check paramsConfig to see valid values`);
         }
       }
 
