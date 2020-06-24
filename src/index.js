@@ -1,6 +1,6 @@
-
 const isEnvParamEmpty = ([paramName]) => !process.env[paramName] || process.env[paramName].trim() === '';
-const isMandatory = ([, envParamConfig]) => envParamConfig.mandatory;
+// eslint-disable-next-line no-unused-vars
+const isMandatory = ([name, envParamConfig]) => envParamConfig.mandatory;
 
 function validateMandatoryEnvParams(paramsConfig) {
   const missingFields = Object.entries(paramsConfig)
@@ -27,23 +27,37 @@ function applyValidationFunction(paramName, config, value) {
     throw new Error(`value '${value}' of env param '${paramName}' is not valid, check paramsConfig to see valid values`);
   }
 }
+
 function getWrappingFunctionByDefaultValue(value) {
-  let wrappingFunction;
-  switch (typeof value) {
-    case 'number':
-      wrappingFunction = Number;
+  const wrappingFunction = getConvertingFunctionByType(typeof value);
+  return wrappingFunction;
+}
+
+function getConvertingFunctionByType(type) {
+  let convertingFunc;
+  switch (type) {
+    case Types.Number:
+      convertingFunc = Number;
       break;
-    case 'boolean':
-      wrappingFunction = Boolean;
+    case Types.Boolean:
+      convertingFunc = (v) => v === 'true';
       break;
-    case 'string':
-      wrappingFunction = String;
+    case Types.String:
+      convertingFunc = String;
+      break;
+    case Types.Array:
+      convertingFunc = (v) => v.split(',');
       break;
     default:
-      wrappingFunction = (v)=>v;
+      convertingFunc = (v) => v;
   }
 
-  return wrappingFunction;
+  return convertingFunc;
+}
+
+function convertValueToRequiredType(type, value) {
+  const convertingFunction = getConvertingFunctionByType(type);
+  return convertingFunction(value);
 }
 
 function createEnvObject(paramsConfig, shouldValidateEnvParams = true) {
@@ -51,35 +65,44 @@ function createEnvObject(paramsConfig, shouldValidateEnvParams = true) {
     validateMandatoryEnvParams(paramsConfig);
   }
   const result = {};
-  Object.entries(paramsConfig).forEach(([paramName, config]) => {
-    let value = process.env[paramName] || config.default;
+  Object.entries(paramsConfig)
+    .forEach(([paramName, config]) => {
+      let value = process.env[paramName] || config.default;
 
-    if (config.wrappingFunction) {
-      value = applyWrappingFunction(paramName, config.wrappingFunction, value);
-    } else {
-      const wrappingFunction = getWrappingFunctionByDefaultValue(config.default);
-      value = applyWrappingFunction(paramName, wrappingFunction, value);
-    }
-
-    if (shouldValidateEnvParams) {
-      if (config.validationFunction) {
-        applyValidationFunction(paramName, config, value);
+      if (config.type) {
+        value = convertValueToRequiredType(config.type, value);
+      } else if (config.wrappingFunction) {
+        value = applyWrappingFunction(paramName, config.wrappingFunction, value);
+      } else {
+        const wrappingFunction = getWrappingFunctionByDefaultValue(config.default);
+        value = applyWrappingFunction(paramName, wrappingFunction, value);
       }
 
-      if (config.validValues) {
-        if (!config.validValues.includes(value)) {
+      if (shouldValidateEnvParams) {
+        if (config.validationFunction) {
+          applyValidationFunction(paramName, config, value);
+        }
+
+        if (config.validValues && !config.validValues.includes(value)) {
           throw new Error(`value '${value}' of env param '${paramName}' is not valid, check paramsConfig to see valid values`);
         }
       }
-    }
 
-    result[paramName] = value;
-  });
+      result[paramName] = value;
+    });
 
   return result;
 }
 
+const Types = {
+  Number: 'number',
+  Boolean: 'boolean',
+  String: 'string',
+  Array: 'Array',
+};
+
 module.exports = {
   createEnvObject,
   mandatory: true,
+  Types,
 };
