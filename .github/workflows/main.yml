@@ -21,6 +21,12 @@ jobs:
         run: npm run lint
       - name: Unit Tests
         run: npm run test:coverage
+      - name: Prepare Coveralls
+        run: npm run coveralls
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
 #  release:
 #    name: do semantic release
