@@ -19,9 +19,7 @@ jobs:
         run: npm ci
       - name: Lint
         run: npm run lint
-      - name: Unit Tests
-        run: npm run test:coverage
-      - name: Prepare Coveralls
+      - name: Units Tests + Prepare Coveralls
         run: npm run coveralls
       - name: Coveralls
         uses: coverallsapp/github-action@master
