@@ -27,12 +27,12 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-  lint-lock:
+  lockfile-lint:
     strategy:
       matrix:
         platform: [ ubuntu-latest ]
         node: [ '14' ]
-    name: Node ${{ matrix.node }} (${{ matrix.platform }})
+    name: Lockfile lint ${{ matrix.node }} (${{ matrix.platform }})
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
