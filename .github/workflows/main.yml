@@ -3,12 +3,27 @@ name: CI
 on: [ push, pull_request ]
 
 jobs:
+  lockfile-lint:
+    strategy:
+      matrix:
+        platform: [ ubuntu-latest ]
+        node: [ '14' ]
+    name: Lockfile lint ${{ matrix.node }} (${{ matrix.platform }})
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: lint lock file
+        run: npx lockfile-lint --path package-lock.json --allowed-hosts npm --validate-https
+
   test:
     strategy:
       matrix:
         platform: [ ubuntu-latest ]
         node: [ '10', '12', '14' ]
-    name: Node ${{ matrix.node }} (${{ matrix.platform }})
+    name: Unit Tests Node ${{ matrix.node }} (${{ matrix.platform }})
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
@@ -26,21 +41,6 @@ jobs:
         if: matrix.node == '14'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
-  lockfile-lint:
-    strategy:
-      matrix:
-        platform: [ ubuntu-latest ]
-        node: [ '14' ]
-    name: Lockfile lint ${{ matrix.node }} (${{ matrix.platform }})
-    runs-on: ${{ matrix.platform }}
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node }}
-      - name: lint lock file
-        run: npx lockfile-lint --path package-lock.json --allowed-hosts npm --validate-https
 
   release:
     name: do semantic release
