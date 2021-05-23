@@ -7,7 +7,7 @@ permissions:
   checks: read
   contents: read
   deployments: write
-  issues: read
+  issues: write
   packages: read
   pull-requests: read
   repository-projects: read
@@ -57,7 +57,7 @@ jobs:
 
   release:
     name: do semantic release
-    needs: lockfile-lint
+    needs: [test, lockfile-lint]
     runs-on: 'ubuntu-latest'
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
