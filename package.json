@@ -9,8 +9,8 @@
   "scripts": {
     "test": "mocha",
     "lint": "./node_modules/.bin/eslint ./src --fix",
-    "test:coverage": "nyc npm test && nyc report --reporter=text-lcov",
-    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+    "test:coverage": "nyc npm test && nyc report --reporter=lcov",
+    "coveralls": "npm run test:coverage && cat coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,6 @@
     "process.env"
   ],
   "homepage": "https://github.com/yuriabaevzooz/envVars#readme",
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
@@ -40,7 +39,7 @@
     "@typescript-eslint/parser": "^2.6.0",
     "babel-loader": "^8.0.5",
     "chai": "^4.2.0",
-    "coveralls": "^3.0.7",
+    "coveralls": "^3.1.0",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
