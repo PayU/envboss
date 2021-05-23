@@ -56,7 +56,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   release:
-    name: do semantic release
+    name: release
     needs: [test, lockfile-lint]
     runs-on: 'ubuntu-latest'
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
