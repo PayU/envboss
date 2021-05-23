@@ -5,7 +5,7 @@ on: [ push, pull_request ]
 permissions:
   actions: read
   checks: read
-  contents: read
+  contents: write
   deployments: write
   issues: write
   packages: read
