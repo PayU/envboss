@@ -10,7 +10,7 @@
     "test": "mocha",
     "lint": "./node_modules/.bin/eslint ./src --fix",
     "test:coverage": "nyc npm test && nyc report --reporter=lcov",
-    "coveralls": "npm run test:coverage && cat coverage/lcov.info | coveralls"
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
