@@ -19,7 +19,7 @@ This package will help you organize and validate all your environment variables 
 > npm i envboss
 ``` 
  
-## How to use
+## How to use 
 
 ```javascript
 /// envVariablesConfig.js
